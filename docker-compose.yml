@@ -1,0 +1,10 @@
+services:
+  sec-fetcher:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SEC_USER_AGENT_NAME=${SEC_USER_AGENT_NAME}
+      - SEC_USER_AGENT_EMAIL=${SEC_USER_AGENT_EMAIL}
+    volumes:
+      - ./output:/app/output

@@ -1,0 +1,29 @@
+[project]
+name = "sec-fetcher"
+version = "0.1.0"
+description = "Fetch latest 10-K reports from SEC EDGAR and convert to PDF"
+authors = [
+    {name = "Sajjad Robin",email = "technovicebd@gmail.com"}
+]
+requires-python = "^3.11"
+dependencies = [
+    "httpx (>=0.28.1,<0.29.0)",
+    "playwright (>=1.64.0,<2.0.0)",
+    "fastapi[standard] (>=0.156.1,<0.157.0)",
+    "uvicorn (>=0.54.0,<0.55.0)",
+    "jinja2 (>=3.1.6,<4.0.0)",
+]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v -m 'not integration'"  # exclude integration tests by default
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)"
+]
